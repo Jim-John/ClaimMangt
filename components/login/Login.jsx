@@ -10,10 +10,14 @@ class LoginForm extends React.Component {
     super(props);
     this.state = {invalidUser: false};
     this.validateLogin = this.validateLogin.bind(this);
-	
+    //Logger Initialization for react-logger-lib
+    localStorage.setItem('App', 'INFO');
+    localStorage.setItem('LoginForm', 'INFO');
+	//this.state={isLoggedIn:'N'};
 }
 
 validateLogin(e) {
+   console.log(this.isLoggedIn);
     e.preventDefault();        
     axios.get(`http://localhost:7001/users/`)
     .then(res => {
@@ -22,16 +26,15 @@ validateLogin(e) {
             if(res.data[i].username === this.refs['userId'].value
             && res.data[i].password === this.refs['password'].value) {
                 foundUser = true;
-				 
-				 
+                
             }
         }
         Logger.of('LoginForm').info('Found matching User---->', 'foundUser=', foundUser);
-        console.log('foundUser='+foundUser); 
+       
      
         if(foundUser) {
             Logger.of('LoginForm').info('inside match user'); 
-           
+            //this.state={isLoggedIn:'Y'};
            browserHistory.push('/home');
            
         }else {
