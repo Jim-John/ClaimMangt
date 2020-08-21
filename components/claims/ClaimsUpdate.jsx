@@ -178,7 +178,7 @@ submitClaim(e) {
             <Col>
               <Form.Group>
                 <Form.Label>Claim Start Date</Form.Label>
-                <Form.Control type="text" defaultValue={start_date} ref="start_date" />
+                <Form.Control type="date" defaultValue={start_date} ref="start_date" />
               </Form.Group>
             </Col>
 
@@ -187,7 +187,7 @@ submitClaim(e) {
             <Col>
               <Form.Group>
                 <Form.Label>Claim End Date</Form.Label>
-                <Form.Control type="text" defaultValue={end_date} ref="end_date"/>
+                <Form.Control type="date" defaultValue={end_date} ref="end_date"/>
               </Form.Group>
             </Col>
 
